@@ -1,0 +1,49 @@
+{
+  "sync": {
+    "last_update": {
+      "secs": 1672834869,
+      "nanos": 85556898
+    },
+    "frame": 0
+  },
+  "players": [],
+  "cmds_history": [
+    [
+      {
+        "user": "Server"
+      },
+      {
+        "cmd": "SpawnAsteroid",
+        "args": [
+          31.886185,
+          -83.55105
+        ]
+      }
+    ]
+  ],
+  "game_objects": {
+    "31782": {
+      "type": "Asteroid",
+      "transform": {
+        "position": [
+          31.886185,
+          -83.55105
+        ],
+        "velocity": [
+          8.201162,
+          4.8907905
+        ],
+        "rotation": 0.0,
+        "angular_velocity": 0.0,
+        "acceleration": [
+          0.0,
+          0.0
+        ],
+        "torque": 0.0
+      },
+      "radius": 3.3370366,
+      "health": 1.0,
+      "material": "Copper"
+    }
+  }
+}
