@@ -57,7 +57,7 @@ impl ServerSession {
         let target_duration = std::time::Duration::from_secs_f32(1. / fps as f32);
         
         let mut lobby_timer: Option<Instant> = None;
-        const LOBBY_TIME: Duration = Duration::from_secs(10);
+        const LOBBY_TIME: Duration = Duration::from_secs(60);
         let mut lobby_report_interval = Interval::new(Duration::from_secs(1));
 
         let mut game_timer: Option<Instant> = None;

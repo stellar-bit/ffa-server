@@ -1139,7 +1139,7 @@ dependencies = [
 [[package]]
 name = "stellar-bit-core"
 version = "0.1.0"
-source = "git+https://github.com/stellar-bit/core#ba479ac411efdbbc4417b6f9e35b018f0caa56ba"
+source = "git+https://github.com/stellar-bit/core#be531f9f8f1ef5ff8455348437b8a54c66ed4713"
 dependencies = [
  "bincode",
  "chrono",
