@@ -103,7 +103,7 @@ impl ServerSession {
 
                     // create a star base for each player and give them materials
                     for (player_id, _) in game.players.clone() {
-                        game.execute_cmd(User::Server, GameCmd::SpawnStarBase(player_id, Vec2::random_unit_circle()*1000., Vec2::ZERO))?;
+                        game.execute_cmd(User::Server, GameCmd::SpawnStarBase(player_id, Vec2::random_unit_circle()*5000., Vec2::ZERO))?;
                         game.execute_cmd(
                             User::Server,
                             GameCmd::GiveMaterials(
@@ -145,7 +145,7 @@ impl ServerSession {
                         *self.state.write().await = ServerState::Lobby;
                     }
                     else if game_timer.unwrap().elapsed() > GAME_TIME {
-                        game.execute_cmd(User::Server, GameCmd::AddLogMessage("10 minutes have elapsed it is a draw!".into())).unwrap();
+                        game.execute_cmd(User::Server, GameCmd::AddLogMessage("Game time has ran out, it is a draw!".into())).unwrap();
                         *self.state.write().await = ServerState::Lobby;
                     }
                     else if game.star_bases().len() == 1 {
@@ -207,8 +207,9 @@ async fn handle_client(stream: TcpStream, game: Arc<RwLock<Game>>, hub_conn: Arc
     let mut client_handle = ClientHandle::new(stream, game.clone(),  server_state, hub_conn).await.unwrap();
     loop {
         if let Err(err) = client_handle.update().await {
-            eprintln!("{:?}", err);
+            eprintln!("User has disconnected with error: {:?}", err);
             if let User::Player(id) = client_handle.user {
+                eprintln!("Removing player {} from the game", id);
                 game.write().await.execute_cmd(User::Server, GameCmd::RemovePlayer(id)).unwrap();
             }
             return;
