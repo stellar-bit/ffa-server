@@ -20,8 +20,8 @@ mod hub_connection;
 pub use hub_connection::ServerHubConn;
 
 
-pub const SERVER_ADDR: SocketAddrV4 = SocketAddrV4::new(Ipv4Addr::new(213, 211, 62, 122), 39453);
-pub const SERVER_NAME: &str = "Official FFA";
+pub const SERVER_ADDR: SocketAddrV4 = SocketAddrV4::new(Ipv4Addr::new(109, 123, 253, 15), 39453);
+pub const SERVER_NAME: &str = "Standard FFA";
 
 pub async fn start_server(hub_conn: ServerHubConn) {
     let server_state = Arc::new(RwLock::new(ServerState::default()));
