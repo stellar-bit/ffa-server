@@ -61,7 +61,7 @@ impl ServerSession {
         let mut lobby_report_interval = Interval::new(Duration::from_secs(1));
 
         let mut game_timer: Option<Instant> = None;
-        const GAME_TIME: Duration = Duration::from_secs(60*10);
+        const GAME_TIME: Duration = Duration::from_secs(60*15);
 
         loop {
             let frame_time_measure = std::time::Instant::now();
