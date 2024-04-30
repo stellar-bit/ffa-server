@@ -58,7 +58,6 @@ impl ClientHandle {
         match msg {
             ClientRequest::Join(player_id, access_token) => {
                 let mut game = self.game.write().await;
-                let server_state = self.server_state.read().await;
 
                 self.user = User::Spectator;
 
@@ -68,7 +67,7 @@ impl ClientHandle {
                 }
 
                 if !game.players.contains_key(&player_id) {
-                    if ServerState::Lobby != *server_state || game.players.len() >= 10 {
+                    if game.players.len() >= 10 {
                         return Ok(ServerResponse::ServerFull);
                     };
                     game.execute_cmd(User::Server, GameCmd::AddPlayer(player_id))
