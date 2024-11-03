@@ -1,7 +1,7 @@
 
 
 use stellar_bit_central_hub_api::HubAPI;
-use stellar_bit_server_template::{start_server, ServerHubConn, SERVER_NAME};
+use stellar_bit_ffa_server::{start_server, ServerHubConn, SERVER_NAME};
 
 
 #[tokio::main]

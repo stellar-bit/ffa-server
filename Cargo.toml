@@ -1,5 +1,5 @@
 [package]
-name = "stellar-bit-server-template"
+name = "stellar-bit-ffa-server"
 version = "0.1.0"
 edition = "2021"
 
