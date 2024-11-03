@@ -150,8 +150,9 @@ impl ServerSession {
                     }
                     else if game.star_bases().len() == 1 {
                         let winner_id = game.star_bases()[0].owner;
-                        game.execute_cmd(User::Server, GameCmd::AddLogMessage(format!("Winner is player {}!", winner_id)))?;
                         *self.state.write().await = ServerState::Lobby;
+                        *game = Game::new();
+                        game.execute_cmd(User::Server, GameCmd::AddLogMessage(format!("Winner is player {}!", winner_id)))?;
                     }
                 },
             }
